@@ -1,4 +1,5 @@
 <template>
+<v-container>
   <v-app style="-webkit-app-region: drag">
     <v-navigation-drawer
     v-model="drawer"
@@ -75,16 +76,17 @@
       <v-icon>logout</v-icon>
     </v-btn>
     </v-app-bar>
-    <v-content>
-      <v-container
+    <v-content >
+      <v-container 
       class="scroll-y"
       fluid="">
       <v-row align="center" justify="center">
         <router-view/>
       </v-row>
-       
+       <footer1/>
       </v-container>
     </v-content>
+    
     <v-btn
     v-scroll="onScroll"
     bottom
@@ -97,13 +99,22 @@
     class="clickable">
     <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
+    
   </v-app>
+  
+  </v-container>
+  
 </template>
 
 <script>
+import footer1 from './components/footer.vue'
 export default {
-  name: 'App',
+  components: {
+    footer1,
+  },
 
+  name: 'App',
+ 
   props: {
     source: String,
   },
@@ -131,9 +142,9 @@ export default {
           {icon: "mdi-printer", text: "Printer", route: "/about"},
         ],
       },
-      {icon: "mdi-finance", text: "Revenue", route: "/revenue"},
-      {icon: "mdi-chart-pie", text: "Analytics", route: "chart"},
-      {icon: "mdi-magnify", text: "Search", route: "/Recherche"}
+      {icon: "mdi-finance", text: "Revenue", route: "/footer"},
+      {icon: "mdi-chart-pie", text: "Analytics", route: "/ana"},
+      {icon: "mdi-magnify", text: "Search", route: "/test"}
     ]
   }),
   methods: {
